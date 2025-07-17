@@ -13,6 +13,12 @@ cpu = [
     "trackers[cpu] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 
+# cu124 = [
+#     "torch",
+#     "torchvision",
+#     "trackers[cu124] @ git+https://github.com/roboflow/trackers.git@main",
+# ]
+
 cu124 = [
     "torch",
     "torchvision",
@@ -29,10 +35,12 @@ conflicts = [
 
 [tool.uv.sources]
 torch = [
+  { index = "pytorch-cpu" },
   { index = "pytorch-cpu", extra = "cpu" },
   { index = "pytorch-cu124", extra = "cu124" },
 ]
 torchvision = [
+  { index = "pytorch-cpu" },
   { index = "pytorch-cpu", extra = "cpu" },
   { index = "pytorch-cu124", extra = "cu124" },
 ]
@@ -40,7 +48,6 @@ torchvision = [
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
-explicit = true
 
 [[tool.uv.index]]
 name = "pytorch-cu124"
