@@ -8,8 +8,8 @@ dependencies = []
 
 [project.optional-dependencies]
 cpu = [
-    "torch",
-    "torchvision", 
+    "torch==2.7.0+cpu",
+    "torchvision==0.22.0+cpu", 
     "trackers[cpu] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 
@@ -20,8 +20,8 @@ cpu = [
 # ]
 
 cu124 = [
-    "torch",
-    "torchvision",
+    "torch==2.7.0+cu124 --index-url https://download.pytorch.org/whl/cu124",
+    "torchvision==0.22.0+cu124 --index-url https://download.pytorch.org/whl/cu124",
     "trackers[cu124] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 
@@ -34,16 +34,8 @@ conflicts = [
 ]
 
 [tool.uv.sources]
-torch = [
-  { index = "pytorch-cpu" },
-  { index = "pytorch-cpu", extra = "cpu" },
-  { index = "pytorch-cu124", extra = "cu124" },
-]
-torchvision = [
-  { index = "pytorch-cpu" },
-  { index = "pytorch-cpu", extra = "cpu" },
-  { index = "pytorch-cu124", extra = "cu124" },
-]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
