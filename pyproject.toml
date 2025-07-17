@@ -8,13 +8,13 @@ dependencies = []
 
 [project.optional-dependencies]
 cpu = [
-    "torch>=2.7.0",
-    "torchvision>=0.22.0", 
+    "torch",
+    "torchvision", 
     "trackers[cpu] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 gpu = [
-    "torch>=2.7.0",
-    "torchvision>=0.22.0",
+    "torch",
+    "torchvision",
     "trackers[cu124] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 
