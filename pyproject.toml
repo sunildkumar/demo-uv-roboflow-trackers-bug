@@ -20,8 +20,8 @@ cpu = [
 # ]
 
 cu124 = [
-    "torch @ https://download.pytorch.org/whl/cu124/torch-2.7.0%2Bcu124-cp312-cp312-linux_x86_64.whl",
-    "torchvision @ https://download.pytorch.org/whl/cu124/torchvision-0.22.0%2Bcu124-cp312-cp312-linux_x86_64.whl",
+    "torch-cu124==2.7.0",  # alias package published on the cu124 index
+    "torchvision-cu124==0.22.0",
     "trackers[cu124] @ git+https://github.com/roboflow/trackers.git@main",
 ]
 
@@ -34,14 +34,15 @@ conflicts = [
 ]
 
 [tool.uv.sources]
-torch = { index = "pytorch-cpu" }
-torchvision = { index = "pytorch-cpu" }
+torch        = { index = "pytorch-cpu" }
+torchvision  = { index = "pytorch-cpu" }
+# alias packages are different names, so no conflict and no explicit pin needed
 
 [[tool.uv.index]]
 name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
+url  = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [[tool.uv.index]]
 name = "pytorch-cu124"
-url = "https://download.pytorch.org/whl/cu124"
-explicit = true
+url  = "https://download.pytorch.org/whl/cu124"
